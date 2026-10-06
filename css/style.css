@@ -1,0 +1,39 @@
+.hero-bg{
+background-color: #DBDBDB;
+
+}
+
+.booker-logo {
+font-size: 40px;
+color: #d60eb5;
+}
+
+h1 {
+  font-family: "Sriracha", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(212, 18, 138);
+}
+.sriracha-regular {
+  font-family: "Sriracha", cursive;
+  font-weight: 200;
+  font-style: normal;
+}
+
+
+.chakra-petch-regular-italic {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+
+p {
+  font-family: "Taviraj", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.footer-bg{
+    background-color: #2e4191;
+}
