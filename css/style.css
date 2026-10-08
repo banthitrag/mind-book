@@ -1,40 +1,315 @@
-.hero-bg{
-background-color: #ffffff;
+:root {
+            --baby-pink: #FFD7E2;
+            --baby-pink-light: #FFF0F5;
+            --baby-blue: #C5E3F6;
+            --baby-blue-light: #EBF7FF;
+            --pastel-yellow: #FFF2B2;
+            --pastel-mint: #C1F0DA;
+            --electric-pink: #FF4B82;
+            --vibrant-purple: #8B5CF6;
+            --cute-dark: #3A3238;
+            --soft-shadow: 0 10px 30px rgba(255, 120, 160, 0.15);
+            --card-shadow: 0 15px 35px rgba(180, 210, 240, 0.25);
+        }
 
+        body {
+            font-family: 'Mitr', 'Mali', sans-serif;
+            color: var(--cute-dark);
+            background-color: #FFFDFE;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(var(--baby-pink) 1.5px, transparent 1.5px), 
+                radial-gradient(var(--baby-blue) 1.5px, #FFFDFE 1.5px);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+        }
+
+        /* Typography Custom Rules */
+        .font-sriracha { font-family: 'Sriracha', cursive; }
+        .font-chakra { font-family: 'Chakra Petch', sans-serif; }
+        .font-mali { font-family: 'Mali', cursive; }
+
+        /* Custom Kawaii Components & Utilities */
+        .navbar-kawaii {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 3px solid var(--baby-pink);
+        }
+
+        .btn-electric {
+            background: linear-gradient(135deg, var(--electric-pink), #FF7597);
+            color: white;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 8px 20px rgba(255, 75, 130, 0.35);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-electric:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(255, 75, 130, 0.5);
+            color: white;
+        }
+
+        .btn-soft-blue {
+            background: var(--baby-blue);
+            color: var(--cute-dark);
+            font-weight: 600;
+            border: 2px solid #A2D2F2;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-soft-blue:hover {
+            background: #B2DAF5;
+            color: var(--cute-dark);
+            transform: translateY(-2px);
+        }
+
+        .kawaii-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 28px;
+            border: 3px solid var(--baby-pink);
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s ease;
+        }
+
+        .kawaii-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--electric-pink);
+            box-shadow: 0 20px 40px rgba(255, 75, 130, 0.2);
+        }
+
+        .kawaii-badge {
+            background-color: var(--pastel-yellow);
+            color: #8C6D00;
+            font-weight: 700;
+            border-radius: 20px;
+            padding: 6px 16px;
+            border: 2px dashed #FFD54F;
+        }
+
+        .hero-section {
+            padding-top: 130px;
+            padding-bottom: 90px;
+            background: linear-gradient(180deg, rgba(255,240,245,0.7) 0%, rgba(235,247,255,0.8) 100%);
+            position: relative;
+        }
+
+       /* ==========================================
+   Manga Book Frame & Cover Styling
+   ========================================== */
+
+/* ขยายขนาดกรอบให้พอดีกับรูปหนังสือแนวตั้ง */
+.kawaii-book-frame {
+    max-width: 380px; /* ขยายความกว้างกรอบเพิ่มขึ้น */
+    border-color: var(--baby-pink, #FFD1DC) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.booker-logo {
-font-size: 40px;
-color: #d60eb5;
+.kawaii-book-frame:hover {
+    transform: translateY(-6px) rotate(1deg);
+    box-shadow: 0 15px 30px rgba(255, 182, 193, 0.4) !important;
 }
 
-h1 {
-  font-family: "Sriracha", cursive;
-  font-weight: 400;
-  font-style: normal;
-  color: rgb(212, 18, 138);
-}
-.sriracha-regular {
-  font-family: "Sriracha", cursive;
-  font-weight: 200;
-  font-style: normal;
+/* ปรับขนาดรูปหนังสือให้ขยายเต็มสัดส่วนสวยงาม */
+.book-cover-img {
+    width: 100%;
+    height: auto;
+    max-height: 480px; /* ปรับความสูงให้เห็นรูปเต็มหน้าปกสวยงาม */
+    object-fit: contain; /* คงอัตราส่วนรูปไม่ให้บวมหรือเบี้ยว */
+    display: block;
 }
 
-
-.chakra-petch-regular-italic {
-  font-family: "Chakra Petch", sans-serif;
-  font-weight: 400;
-  font-style: italic;
+/* สีเน้น Electric Pink สำหรับ Badge */
+.bg-electric-pink {
+    background-color: #FF477E !important;
 }
 
-
-p {
-  font-family: "Taviraj", serif;
-  font-weight: 500;
-  font-style: normal;
+/* แอนิเมชั่นลอยเบาๆ (Floating Effect) */
+.floating-element {
+    animation: floatingManga 4s ease-in-out infinite;
 }
 
-.footer-bg{
-    background-color: #ff7bd7;
+@keyframes floatingManga {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
 }
+        /* Floating Sparkles Animations */
+        @keyframes floatAnim {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .floating-element {
+            animation: floatAnim 4s ease-in-out infinite;
+        }
+
+        .sparkle-icon {
+            position: absolute;
+            color: #FFD54F;
+            animation: pulseGlow 2s infinite ease-in-out;
+        }
+
+        /* Cloud Bottom Divider */
+        .cloud-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .cloud-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 50px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--baby-pink-light); }
+        ::-webkit-scrollbar-thumb { background: var(--baby-pink); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--electric-pink); }
+
+        /* ==========================================
+   Section 2 Balloon Decorative Effect
+   ========================================== */
+
+/* กรอบการ์ดใส่รูปภาพ */
+.kawaii-balloon-card {
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
+}
+
+.kawaii-balloon-card:hover {
+    transform: translateY(-4px);
+}
+
+.section2-book-img {
+    max-height: 360px;
+    width: 100%;
+    object-fit: contain;
+    background-color: #ffffff;
+}
+
+/* เอฟเฟกต์ลูกโป่งพาสเทลลอยในพื้นหลัง */
+.balloon-decor {
+    position: absolute;
+    user-select: none;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.55; /* ปรับความโปร่งแสงพอดีๆ เพื่อไม่ให้เด่นแข่งกับข้อความ */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
+}
+
+/* ลูกโป่งลูกที่ 1 (ซ้ายบน) */
+.balloon-1 {
+    top: -15px;
+    left: 5%;
+    font-size: 2.2rem;
+    animation: floatBalloon 5s ease-in-out infinite alternate;
+}
+
+/* ลูกโป่งลูกที่ 2 (ขวาบน) */
+.balloon-2 {
+    top: 10%;
+    right: 2%;
+    font-size: 1.8rem;
+    animation: floatBalloon 4s ease-in-out 1s infinite alternate;
+}
+
+/* ลูกโป่งลูกที่ 3 (ซ้ายล่าง) */
+.balloon-3 {
+    bottom: -10px;
+    left: 10%;
+    font-size: 2rem;
+    animation: floatBalloon 6s ease-in-out 0.5s infinite alternate;
+}
+
+/* Keyframes สำหรับท่าทางลูกโป่งลอย */
+@keyframes floatBalloon {
+    0% {
+        transform: translateY(0px) rotate(-3deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(4deg);
+    }
+    100% {
+        transform: translateY(-4px) rotate(-2deg);
+    }
+}
+
+/* ==========================================
+   Continuous Upward Floating Balloons Effect
+   ========================================== */
+
+.balloon-container {
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.real-balloon {
+    position: absolute;
+    width: 45px;
+    height: 70px;
+    opacity: 0.75;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.06));
+    animation: floatUp 8s linear infinite;
+}
+
+/* ตั้งตำแหน่งและระยะเวลาปล่อยลูกโป่งแต่ละลูก */
+.balloon-1 {
+    left: 2%;
+    bottom: -80px;
+    animation-duration: 7s;
+    animation-delay: 0s;
+}
+
+.balloon-2 {
+    right: 5%;
+    bottom: -80px;
+    width: 38px;
+    animation-duration: 9s;
+    animation-delay: 2.5s;
+}
+
+.balloon-3 {
+    left: 35%;
+    bottom: -80px;
+    width: 42px;
+    animation-duration: 8.5s;
+    animation-delay: 5s;
+}
+
+/* Keyframe สำหรับให้ลูกโป่งค่อยๆ ลอยจากด้านล่างขึ้นไปข้างบนแล้วสเวย์ซ้ายขวา */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-200px) translateX(-15px) rotate(-6deg);
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-420px) translateX(15px) rotate(6deg);
+        opacity: 0;
+    }
+}
+
 

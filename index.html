@@ -14,122 +14,243 @@
 
 <body>
 
-    <!-- Header -->
-    <header class="border-bottom bg-white">
-        <div class="container">
+    <!-- Header / Navbar -->
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-kawaii py-2">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                    <div class="bg-gradient p-2 rounded-circle shadow-sm" style="background: linear-gradient(135deg, var(--baby-pink), var(--baby-blue));">
+                        <i class="fa-solid fa-book-open-reader text-white fs-4"></i>
+                    </div>
+                   
+                    <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand d-flex align-items-center gap-2" href="#">
                     <img src="images/logo-book.svg" alt="booker" width="50" height="50">
                     <span class="fw-bold fs-4">trago</span>
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#mainMenu" aria-controls="mainMenu"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="mainMenu">
-                    <ul class="navbar-nav ms-auto gap-lg-4">
+                    <ul class="navbar-nav ms-auto gap-lg-3 font-mitr align-items-center my-2 my-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#section1">ความรู้ที่ได้จากหนังสือเล่มนี้</a>
+                            <a class="nav-link px-3 fw-medium text-dark hover-pink" href="#section1">
+                                <i class="fa-solid fa-wand-magic-sparkles text-danger me-1"></i> ความรู้ที่ได้
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#section2">เกี่ยวกับเรา</a>
+                            <a class="nav-link px-3 fw-medium text-dark hover-pink" href="#section2">
+                                <i class="fa-solid fa-heart text-danger me-1"></i> เกี่ยวกับเรา
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#download">ดาวน์โหลด</a>
+                        <li class="nav-item ms-lg-2">
+                            <a class="btn btn-electric px-4 py-2" href="#download">
+                                <i class="fa-solid fa-cloud-arrow-down me-1"></i> ดาวน์โหลด 
+                            </a>
                         </li>
                     </ul>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
 
-    <!-- Hero -->
-    <section class="py-5 hero-bg" >
-        <div class="container">
-            <div class="row align-items-center g-4">
-                <div class="col-12 col-md-7 col-lg-7 col-xl-7">
-                    <p class="text-secondary mb-2"> </p>
-                    <h1 class="display-5 fw-bold">
-                        ทำไม? การอดทน... ถึงยังเป็นเรื่องยาก
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <!-- Floating Kawaii Decor Elements -->
+        <i class="fa-solid fa-sparkles sparkle-icon fs-3" style="top: 15%; left: 8%;">✦</i>
+        <i class="fa-solid fa-heart sparkle-icon fs-4 text-danger" style="top: 25%; right: 10%; animation-delay: 1s;"></i>
+        <i class="fa-solid fa-cloud text-white opacity-75 fs-1 floating-element" style="top: 20%; left: 45%;"></i>
+
+        <div class="container relative-zIndex">
+            <div class="row align-items-center g-5 py-3">
+                <div class="col-12 col-lg-7" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="d-inline-flex items-center gap-2 mb-3">
+                        <span class="kawaii-badge font-mali">🌸 หนังสือพัฒนาตนเองสไตล์การ์ตูนญี่ปุ่น</span>
+                    </div>
+
+                    <h1 class="display-4 fw-bold font-mali mb-4 leading-tight" style="color: var(--cute-dark);">
+                        ทำไม? <span class="px-3 py-1 rounded-4 text-white d-inline-block shadow-sm" style="background: linear-gradient(135deg, var(--electric-pink), #FF85A2); transform: rotate(-1deg);">การอดทน...</span><br>
+                        ถึงยังเป็นเรื่องยากสำหรับเรา?
                     </h1>
+
+                    <p class="fs-5 text-secondary font-mitr mb-4 leading-relaxed">
+                        ร่วมค้นหาคำตอบผ่านเรื่องราวสุดน่ารักของการ์ตูนสี่สีสดใสที่จะช่วยเปลี่ยนความใจร้อน 
+                        และเพิ่มพลังแห่งความมุ่งมั่นเพื่อทำฝันให้เป็นจริง! ✨
+                    </p>
+
+                    <div class="d-flex flex-wrap gap-3 pt-2">
+                        <button onclick="generateKawaiiQuote()" class="btn btn-soft-blue btn-lg px-4 py-3 font-mitr">
+                            <i class="fa-solid fa-dice-five text-primary me-2"></i> สุ่มข้อคิดประจำวัน 🌸
+                        </button>
+                    </div>
+
+                    <!-- Dynamic Quote Box -->
+                    <div id="quoteDisplay" class="mt-4 p-3 rounded-4 border border-2 border-warning bg-white shadow-sm font-mali text-danger" style="display: none;">
+                        <i class="fa-solid fa-quote-left me-2"></i><span id="quoteText"></span>
+                    </div>
                 </div>
 
-                <div class="col-12 col-md-5 col-lg-5 col-xl-5 text-center">
-                    <img src="images/real.png"
-                         alt="การอ่านหนังสือ"
-                         class="img-fluid rounded">
-                </div>
+               <div class="col-12 col-lg-5 text-center d-flex justify-content-center" data-aos="zoom-in" data-aos-duration="1200">
+    <div class="manga-book-container floating-element w-100">
+        <!-- กรอบรูปการ์ตูนน่ารัก ขยายขนาดตามสัดส่วนรูปจริง -->
+        <div class="bg-white p-3 p-sm-4 rounded-5 border border-4 shadow-lg position-relative mx-auto kawaii-book-frame">
+            
+            <!-- รูปปกหนังสือจริงของคุณ -->
+            <img src="images/real.png" 
+                 alt="หนังสือ ไม่ยาก ถ้าอยากมีความอดทน" 
+                 class="img-fluid rounded-4 shadow-sm book-cover-img">
+
+            <div class="mt-3">
+                <span class="badge font-mali fs-6 px-3 py-2 rounded-pill shadow-sm text-white bg-electric-pink">
+                    ⭐ 
+                </span>
             </div>
+        </div>
+    </div>
+</div>
+
+        <!-- Cloud SVG Divider Bottom -->
+        <div class="cloud-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z" fill="#F8F9FA"></path>
+            </svg>
         </div>
     </section>
 
     <!-- Section 1 -->
-    <section id="section1" class="py-5 bg-light">
-        <div class="container text-center">
-            <h2 class="fw-bold mb-4 chakra-petch-regular-italic">พลังแห่งความอดทนสำคัญพอกับพรสวรรค์</h2>
+    <section id="section1" class="py-5 bg-light position-relative">
+        <div class="container py-4 text-center">
+            
+            <div class="row justify-content-center mb-4" data-aos="fade-up">
+                <div class="col-12 col-lg-8">
+                    <span class="kawaii-badge font-mali mb-2 d-inline-block">🌱 พลังสร้างสรรค์ความฝัน</span>
+                    <h2 class="display-6 fw-bold font-mali text-dark mt-2 mb-3">
+                        พลังแห่งความอดทน <span class="px-2 py-1 bg-warning rounded-3">สำคัญพอกับพรสวรรค์</span>
+                    </h2>
+                
+            </div>
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="200">
                 <div class="col-12 col-lg-10">
-                    <p class="fs-5">
-                       แน่นอนว่ามีคนที่ประสบความสำเร็จเพราะสิ่งที่เรียกว่า 'พรสวรรค์' แต่ก็ไม่ใช่ปัจจัยที่ทำให้ทุกคนประสบความสำเร็จทั้งหมด 
-                       สิ่งที่สำคัญ คือ ความฝันที่มาพร้อมกับ "ความอดทน" ของคนเหล่านั้นมิใช่หรือ? 
-                    </p>
+                    <div class="kawaii-card p-4 p-md-5 text-start position-relative">
+                        <i class="fa-solid fa-quote-left position-absolute text-pink opacity-25 display-1" style="top: 15px; left: 20px; color: var(--baby-pink);"></i>
+                        
+                        <p class="fs-5 font-mitr text-secondary leading-relaxed mb-4">
+                            แน่นอนว่ามีคนที่ประสบความสำเร็จเพราะสิ่งที่เรียกว่า <strong class="text-danger underline">"พรสวรรค์"</strong> 
+                            แต่ก็ไม่ใช่ปัจจัยที่ทำให้ทุกคนประสบความสำเร็จทั้งหมด สิ่งที่สำคัญ คือ ความฝันที่มาพร้อมกับ 
+                            <span class="badge bg-danger fs-6 font-mali px-3 py-2" style="background-color: var(--electric-pink) !important;">"ความอดทน"</span> ของคนเหล่านั้นมิใช่หรือ?
+                        </p>
 
-                    <p class="fs-5">
-                        มาสร้างพลังแห่งความอดทน 
-                        โดยใช้หนังสือเล่มนี้เป็นแนวทาง
-                        <strong>"ไม่ยาก ถ้าอยากมีความอดทน"</strong>
-                        เพื่อทำให้ความฝันของตัวเองประสบความสำเร็จ!
-                    </p>
+                        <div class="p-4 rounded-4 border-2 border-dashed border-info bg-white text-center">
+                            <p class="fs-5 font-mali text-dark mb-0">
+                                มาสร้างพลังแห่งความอดทน โดยใช้หนังสือเล่มนี้เป็นแนวทาง 
+                                <strong class="fs-4 text-danger d-block my-2 font-chakra">"ไม่ยาก ถ้าอยากมีความอดทน"</strong>
+                                เพื่อทำให้ความฝันของตัวเองประสบความสำเร็จ! 🚀
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </section>
 
- 
-<!-- Section 2 -->
-<section id="section2" class="py-5">
-    <div class="container">
-        <div class="row align-items-center">
+ <!-- Section 2 -->
+<section id="section2" class="py-5 bg-white position-relative overflow-hidden">
+    
+    <!-- Container ลูกโป่งลอยกระจายเต็มทั้ง Section (อยู่ชั้นหลังสุด z-0) -->
+    <div class="balloon-section-container position-absolute w-100 h-100 top-0 start-0 pointer-events-none z-0">
+        <!-- ลูกโป่ง 1: ชมพู (ฝั่งซ้าย) -->
+        <svg class="real-balloon balloon-sec-1" viewBox="0 0 50 80">
+            <path d="M25 0 C40 0 50 15 50 32 C50 48 30 55 26 58 L28 62 L22 62 L24 58 C20 55 0 48 0 32 C0 15 10 0 25 0 Z" fill="#FFB6C1"/>
+            <ellipse cx="15" cy="15" rx="5" ry="10" fill="#FFFFFF" opacity="0.6" transform="rotate(-30 15 15)"/>
+            <path d="M25 62 Q20 70 25 80" stroke="#FF85A2" stroke-width="2" fill="none"/>
+        </svg>
 
-            <!-- รูปด้านซ้าย -->
-            <div class="col-12 col-lg-5 text-center mb-4 mb-lg-0">
-                <img src="images/patient-sec3.png"
-                     alt="หนังสือไม่ยาก ถ้าอยากมีความอดทน"
-                     class="img-fluid book-image">
+        <!-- ลูกโป่ง 2: ฟ้า (ฝั่งซ้ายกลาง) -->
+        <svg class="real-balloon balloon-sec-2" viewBox="0 0 50 80">
+            <path d="M25 0 C40 0 50 15 50 32 C50 48 30 55 26 58 L28 62 L22 62 L24 58 C20 55 0 48 0 32 C0 15 10 0 25 0 Z" fill="#A3D8F4"/>
+            <ellipse cx="15" cy="15" rx="5" ry="10" fill="#FFFFFF" opacity="0.6" transform="rotate(-30 15 15)"/>
+            <path d="M25 62 Q30 70 25 80" stroke="#70A1FF" stroke-width="2" fill="none"/>
+        </svg>
+
+        <!-- ลูกโป่ง 3: เหลือง (ตรงกลาง) -->
+        <svg class="real-balloon balloon-sec-3" viewBox="0 0 50 80">
+            <path d="M25 0 C40 0 50 15 50 32 C50 48 30 55 26 58 L28 62 L22 62 L24 58 C20 55 0 48 0 32 C0 15 10 0 25 0 Z" fill="#FFEAA7"/>
+            <ellipse cx="15" cy="15" rx="5" ry="10" fill="#FFFFFF" opacity="0.7" transform="rotate(-30 15 15)"/>
+            <path d="M25 62 Q20 70 25 80" stroke="#FDCB6E" stroke-width="2" fill="none"/>
+        </svg>
+
+        <!-- ลูกโป่ง 4: ส้มพาสเทล (ขวาซ้อนข้อความ - ปรับโปร่งแสงไม่บังตัวหนังสือ) -->
+        <svg class="real-balloon balloon-sec-4" viewBox="0 0 50 80">
+            <path d="M25 0 C40 0 50 15 50 32 C50 48 30 55 26 58 L28 62 L22 62 L24 58 C20 55 0 48 0 32 C0 15 10 0 25 0 Z" fill="#FFD1A9"/>
+            <ellipse cx="15" cy="15" rx="5" ry="10" fill="#FFFFFF" opacity="0.6" transform="rotate(-30 15 15)"/>
+            <path d="M25 62 Q20 70 25 80" stroke="#FF9A76" stroke-width="2" fill="none"/>
+        </svg>
+
+        <!-- ลูกโป่ง 5: เขียวมิ้นต์ (ฝั่งขวา) -->
+        <svg class="real-balloon balloon-sec-5" viewBox="0 0 50 80">
+            <path d="M25 0 C40 0 50 15 50 32 C50 48 30 55 26 58 L28 62 L22 62 L24 58 C20 55 0 48 0 32 C0 15 10 0 25 0 Z" fill="#B8E994"/>
+            <ellipse cx="15" cy="15" rx="5" ry="10" fill="#FFFFFF" opacity="0.6" transform="rotate(-30 15 15)"/>
+            <path d="M25 62 Q30 70 25 80" stroke="#78E08F" stroke-width="2" fill="none"/>
+        </svg>
+
+        <!-- ลูกโป่ง 6: ม่วงพาสเทล (ริมขวาสุด) -->
+        <svg class="real-balloon balloon-sec-6" viewBox="0 0 50 80">
+            <path d="M25 0 C40 0 50 15 50 32 C50 48 30 55 26 58 L28 62 L22 62 L24 58 C20 55 0 48 0 32 C0 15 10 0 25 0 Z" fill="#E8D7FF"/>
+            <ellipse cx="15" cy="15" rx="5" ry="10" fill="#FFFFFF" opacity="0.6" transform="rotate(-30 15 15)"/>
+            <path d="M25 62 Q20 70 25 80" stroke="#B892FF" stroke-width="2" fill="none"/>
+        </svg>
+
+        <!-- ลูกโป่ง 7: ชมพูอ่อน (ขวากลาง) -->
+        <svg class="real-balloon balloon-sec-7" viewBox="0 0 50 80">
+            <path d="M25 0 C40 0 50 15 50 32 C50 48 30 55 26 58 L28 62 L22 62 L24 58 C20 55 0 48 0 32 C0 15 10 0 25 0 Z" fill="#FFC3A0"/>
+            <ellipse cx="15" cy="15" rx="5" ry="10" fill="#FFFFFF" opacity="0.6" transform="rotate(-30 15 15)"/>
+            <path d="M25 62 Q20 70 25 80" stroke="#FF6B6B" stroke-width="2" fill="none"/>
+        </svg>
+    </div>
+
+    <div class="container py-4 position-relative z-1">
+        <div class="row align-items-center g-4 g-lg-5">
+
+            <!-- Left Column: รูปภาพหลัก + กรอบขยายกว้าง -->
+            <div class="col-12 col-lg-5 text-center position-relative my-3" data-aos="fade-right">
+                <div class="p-3 p-md-4 rounded-5 shadow-sm position-relative z-1 kawaii-balloon-card mx-auto" 
+                     style="background: linear-gradient(135deg, rgba(255, 209, 220, 0.45), rgba(232, 244, 255, 0.45)); border: 3px solid #FFD1DC; max-width: 420px;">
+                    
+                    <img src="images/patient-sec3.png" 
+                         alt="Let's Be Patient" 
+                         class="img-fluid rounded-4 shadow-sm section2-book-img"
+                         style="width: 100%; height: auto; max-height: 480px; object-fit: contain; background-color: #ffffff;">
+                </div>
             </div>
 
-            <!-- เนื้อหาด้านขวา -->
-            <div class="col-12 col-lg-7">
-
-                <h2 class="fw-bold mb-4 chakra-petch-regular-italic">
-                    หนังสือเล่มนี้ให้อะไรกับเรา?
+            <!-- Right Column: ข้อความเนื้อหาฝั่งขวา -->
+            <div class="col-12 col-lg-7" data-aos="fade-left">
+                <span class="kawaii-badge font-mali mb-2 d-inline-block" style="background-color: #FFF0F5; color: #FF477E; padding: 6px 16px; border-radius: 50rem; font-weight: 600; border: 1px solid #FFD1DC;">📖 ถ่ายทอดผ่านเรื่องราวชีวิตจริง</span>
+                
+                <h2 class="display-6 fw-bold font-mali text-dark mb-4">
+                    หนังสือเล่มนี้ <span style="color: #FF477E !important;">ให้อะไรกับเรา?</span>
                 </h2>
 
-                <p>
-                    หนึ่งในจุดเด่นที่ทำให้
-                    <strong>"ไม่อยาก ถ้าอยากมีความอดทน"</strong>
-                    หนังสือเล่มนี้ไม่ใช่แค่การอธิบายทฤษฎีแบบทื่อ ๆ
-                    แต่เป็นการถ่ายทอดประสบการณ์ของตัวละครที่มีชีวิตจริง
-                </p>
+                <div class="font-mitr text-secondary space-y-3 fs-6" style="line-height: 1.8;">
+                    <p class="mb-3 p-3 rounded-4 border-start border-4 border-danger" style="background-color: rgba(255, 248, 250, 0.9); border-color: #FF477E !important;">
+                        หนึ่งในจุดเด่นที่ทำให้ <strong>"ไม่ยาก ถ้าอยากมีความอดทน"</strong> เล่มนี้ไม่ใช่แค่การอธิบายทฤษฎีแบบทื่อ ๆ แต่เป็นการถ่ายทอดประสบการณ์ของตัวละครที่มีชีวิตจริง
+                    </p>
 
-                <p>
-                    กลายเป็นหนังสือพัฒนาตนเองสำหรับเด็กและวัยรุ่นที่ไม่เหมือนใคร
-                    โดยการเล่าเรื่องผ่านตัวละครเด็กวัยเรียนที่ต้องเผชิญกับสถานการณ์ใจร้อนและขาดความอดทนในชีวิตจริง
-                    เรื่องราวในเล่มช่วยให้ผู้อ่านรู้สึกใกล้ชิด เข้าใจเนื้อหาได้ง่าย และเกิดแรงบันดาลใจว่า
-                    <strong>"เราก็ปรับปรุงตัวเองและเปลี่ยนเป็นคนที่มีความอดทนขึ้นได้เช่นกัน!"</strong>
-                </p>
+                    <p class="mb-3">
+                        กลายเป็นหนังสือพัฒนาตนเองสำหรับเด็กและวัยรุ่นที่ไม่เหมือนใคร โดยการเล่าเรื่องผ่านตัวละครเด็กวัยเรียนที่ต้องเผชิญกับสถานการณ์ใจร้อนและขาดความอดทนในชีวิตจริง เรื่องราวในเล่มช่วยให้ผู้อ่านรู้สึกใกล้ชิด เข้าใจเนื้อหาได้ง่าย และเกิดแรงบันดาลใจว่า
+                        <strong style="color: #2B6CB0;">"เราก็ปรับปรุงตัวเองและเปลี่ยนเป็นคนที่มีความอดทนขึ้นได้เช่นกัน!"</strong>
+                    </p>
 
-                <p>
-                    หนังสือเล่มนี้จะช่วยเปิดเผยเทคนิคการฝึกฝนตนเองที่ทำได้จริงในชีวิตประจำวัน
-                    ไม่ว่าจะเป็นการฝึกควบคุมอารมณ์เมื่อไม่ได้ดังใจ การสร้างสมาธิ การลำดับความสำคัญของสิ่งที่ต้องทำ
-                    ไปจนถึงการยับยั้งชั่งใจต่อสิ่งยั่วยวนรอบตัว ซึ่งเป็นตัวช่วยที่ดีในการสร้างการเปลี่ยนแปลงนิสัยอย่างยั่งยืน
-                    ช่วยให้เด็กๆ เข้าใจว่า "ทำไม" ความอดทนจึงเป็นคีย์สำคัญที่นำไปสู่ความสำเร็จทั้งด้านการเรียนและการใช้ชีวิต
-                </p>
-
+                    <p class="mb-0">
+                        หนังสือเล่มนี้จะช่วยเปิดเผยเทคนิคการฝึกฝนตนเองที่ทำได้จริงในชีวิตประจำวัน ไม่ว่าจะเป็นการฝึกควบคุมอารมณ์เมื่อไม่ได้ดังใจ การสร้างสมาธิ การลำดับความสำคัญของสิ่งที่ต้องทำ ไปจนถึงการยับยั้งชั่งใจต่อสิ่งยั่วยวนรอบตัว ซึ่งเป็นตัวช่วยที่ดีในการสร้างการเปลี่ยนแปลงนิสัยอย่างยั่งยืน
+                    </p>
+                </div>
             </div>
 
         </div>
@@ -137,111 +258,179 @@
 </section>
 
     <!-- Section 3 -->
-    <section class="py-5 bg-light">
-        <div class="container">
+    <section id="section3" class="py-5 bg-light">
+        <div class="container py-4">
+            
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="kawaii-badge font-mali">🌈 คุณค่าและแนวคิดสำคัญ 4 ข้อ</span>
+                <h2 class="display-6 fw-bold font-mali text-dark mt-2">สิ่งที่ผู้อ่านจะได้รับจากหนังสือเล่มนี้</h2>
+                <div class="mx-auto rounded-pill" style="width: 70px; height: 5px; background: var(--baby-blue);"></div>
+            </div>
+
             <div class="row g-4">
 
-                <div class="col-12 col-md-6 col-lg-3 text-center">
-                    <img src=""
-                         alt="เข้าใจหลักการสร้างความอดทน"
-                         class="img-fluid mb-3">
-                    <h3 class="h5 fw-bold text-start">
-                        1.เข้าใจหลักการสร้างความอดทนที่ทำได้จริง
-                    </h3>
-                    <p class="text-start">
-                      ช่วยให้เข้าใจสาเหตุว่าทำไมเราถึงใจร้อนหรือขี้เกียจ 
-                      พร้อมให้เคล็ดลับง่ายๆ ในการฝึกยับยั้งชั่งใจและตั้งสติ 
-                      ซึ่งสามารถนำมาปรับใช้กับชีวิตประจำวันได้ทันที
-                    </p>
+                <!-- Value Card 1 -->
+                <div class="col-12 col-md-6 col-lg-3" data-aos="flip-left" data-aos-delay="100">
+                    <div class="kawaii-card h-100 p-4 text-center">
+                        <div class="rounded-circle p-3 mx-auto mb-3 d-flex align-items-center justify-center shadow-sm" style="width: 80px; height: 80px; background: var(--baby-pink-light);">
+                            <!-- SVG Icon 1 -->
+                            <svg viewBox="0 0 50 50" class="w-100 h-100">
+                                <circle cx="25" cy="25" r="20" fill="#FFD7E2"/>
+                                <path d="M 18 25 L 23 30 L 32 18" fill="none" stroke="#FF4B82" stroke-width="4" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="h5 fw-bold font-mali text-dark mb-2 text-start">
+                            1. เข้าใจหลักการสร้างความอดทนที่ทำได้จริง
+                        </h3>
+                        <p class="font-mitr text-secondary small text-start mb-0">
+                            ช่วยให้เข้าใจสาเหตุว่าทำไมเราถึงใจร้อนหรือขี้เกียจ พร้อมให้เคล็ดลับง่ายๆ ในการฝึกยับยั้งชั่งใจและตั้งสติ ซึ่งสามารถนำมาปรับใช้ได้ทันที
+                        </p>
+                    </div>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-3 text-center">
-                    <img src=""
-                         alt="เทคนิคที่ใช้เวลาไม่นาน"
-                         class="img-fluid mb-3">
-                    <h3 class="h5 fw-bold text-start">
-                        2.เทคนิคจัดการตนเองที่ใช้เวลาไม่นาน
-                    </h3>
-                    <p class="text-start">
-                        เรียนรู้การปรับพฤติกรรมทีละนิด เช่น การแบ่งเวลาทำกิจกรรม
-                         การต่อสู้กับสิ่งยั่วยุตรงหน้า ซึ่งใช้เวลาฝึกเพียงไม่กี่นาทีต่อวัน 
-                         แต่ช่วยเปลี่ยนแปลงนิสัยในระยะยาวได้อย่างดี
-                    </p>
+                <!-- Value Card 2 -->
+                <div class="col-12 col-md-6 col-lg-3" data-aos="flip-left" data-aos-delay="200">
+                    <div class="kawaii-card h-100 p-4 text-center">
+                        <div class="rounded-circle p-3 mx-auto mb-3 d-flex align-items-center justify-center shadow-sm" style="width: 80px; height: 80px; background: var(--baby-blue-light);">
+                            <!-- SVG Icon 2 -->
+                            <svg viewBox="0 0 50 50" class="w-100 h-100">
+                                <circle cx="25" cy="25" r="20" fill="#C5E3F6"/>
+                                <circle cx="25" cy="25" r="12" fill="none" stroke="#3A3238" stroke-width="3"/>
+                                <polyline points="25,17 25,25 30,25" fill="none" stroke="#FF4B82" stroke-width="3"/>
+                            </svg>
+                        </div>
+                        <h3 class="h5 fw-bold font-mali text-dark mb-2 text-start">
+                            2. เทคนิคจัดการตนเองที่ใช้เวลาไม่นาน
+                        </h3>
+                        <p class="font-mitr text-secondary small text-start mb-0">
+                            เรียนรู้การปรับพฤติกรรมทีละนิด เช่น การแบ่งเวลาทำกิจกรรม การต่อสู้กับสิ่งยั่วยุตรงหน้า ซึ่งใช้เวลาฝึกเพียงไม่กี่นาทีต่อวัน
+                        </p>
+                    </div>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-3 text-center">
-                    <img src=""
-                         alt="เพิ่มโอกาสประสบความสำเร็จ"
-                         class="img-fluid mb-3">
-                    <h3 class="h5 fw-bold text-start">
-                       3.เพิ่มโอกาสประสบความสำเร็จในการเรียนและการใช้ชีวิต
-                    </h3>
-                    <p class="text-start">
-                     สอนให้เห็นว่าความอดทนและความพยายามอย่างต่อเนื่อง คือปัจจัยสำคัญที่ช่วยให้การเรียนดีขึ้น 
-                     ทำตามเป้าหมายที่ตั้งไว้สำเร็จ และก้าวผ่านอุปสรรคต่างๆ ไปได้ 
-
-                    </p>
+                <!-- Value Card 3 -->
+                <div class="col-12 col-md-6 col-lg-3" data-aos="flip-left" data-aos-delay="300">
+                    <div class="kawaii-card h-100 p-4 text-center">
+                        <div class="rounded-circle p-3 mx-auto mb-3 d-flex align-items-center justify-center shadow-sm" style="width: 80px; height: 80px; background: var(--pastel-yellow);">
+                            <!-- SVG Icon 3 -->
+                            <svg viewBox="0 0 50 50" class="w-100 h-100">
+                                <polygon points="25,5 31,18 45,19 34,28 38,42 25,34 12,42 16,28 5,19 19,18" fill="#FFD54F" stroke="#3A3238" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="h5 fw-bold font-mali text-dark mb-2 text-start">
+                            3. เพิ่มโอกาสประสบความสำเร็จในการเรียน
+                        </h3>
+                        <p class="font-mitr text-secondary small text-start mb-0">
+                            สอนให้เห็นว่าความอดทนและความพยายามอย่างต่อเนื่อง คือปัจจัยสำคัญที่ช่วยให้การเรียนดีขึ้น และทำตามเป้าหมายได้สำเร็จ
+                        </p>
+                    </div>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-3 text-center">
-                    <img src="images/value-04-easy-reading.png"
-                         alt="เป็นหนังสือที่อ่านเพลิน"
-                         class="img-fluid mb-3">
-                    <h3 class="h5 fw-bold text-start">
-                       4.เป็นการ์ตูนความรู้ที่อ่านเพลิดเพลิน
-                    </h3>
-                    <p class="text-start">
-                        เล่าเรื่องผ่านลายเส้นการ์ตูนสี่สีสดใสและเนื้อเรื่องที่สนุกสนาน เข้าถึงง่าย 
-                        เหมาะสำหรับเด็กและวัยรุ่น อ่านแล้วไม่รู้สึกเหมือนโดนสั่งสอน 
-                        แต่ได้สอดแทรกข้อคิดที่ใช้งานได้จริงตลอดทั้งเล่ม 
-
-                    </p>
+                <!-- Value Card 4 -->
+                <div class="col-12 col-md-6 col-lg-3" data-aos="flip-left" data-aos-delay="400">
+                    <div class="kawaii-card h-100 p-4 text-center">
+                        <div class="rounded-circle p-3 mx-auto mb-3 d-flex align-items-center justify-center shadow-sm" style="width: 80px; height: 80px; background: var(--pastel-mint);">
+                            <!-- SVG Icon 4 -->
+                            <svg viewBox="0 0 50 50" class="w-100 h-100">
+                                <rect x="10" y="10" width="30" height="30" rx="6" fill="#C1F0DA" stroke="#3A3238" stroke-width="2"/>
+                                <circle cx="20" cy="22" r="3" fill="#3A3238"/>
+                                <circle cx="30" cy="22" r="3" fill="#3A3238"/>
+                                <path d="M 20 30 Q 25 35 30 30" fill="none" stroke="#FF4B82" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="h5 fw-bold font-mali text-dark mb-2 text-start">
+                            4. เป็นการ์ตูนความรู้ที่อ่านเพลิดเพลิน
+                        </h3>
+                        <p class="font-mitr text-secondary small text-start mb-0">
+                            เล่าเรื่องผ่านลายเส้นการ์ตูนสี่สีสดใสและเนื้อเรื่องที่สนุกสนาน เข้าถึงง่าย เหมาะสำหรับเด็กและวัยรุ่น อ่านแล้วไม่รู้สึกโดนสั่งสอน
+                        </p>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="download" class="py-5 footer-bg text-white">
-        <div class="container">
-            <div class="row">
-               <div class="col-12 col-lg-10 mx-auto text-center">
+    <!-- Footer / Download Quote Section -->
+    <footer id="download" class="py-5 text-white position-relative" style="background: linear-gradient(135deg, #FF7597, #8B5CF6);">
+        <div class="container py-4">
+            <div class="row justify-content-center text-center">
+                <div class="col-12 col-lg-10" data-aos="zoom-in">
+                    
+                    <p class="fs-5 font-mitr mb-3 text-light">
+                        เมื่อเรามีความอดทน เราจะมองเห็นหนทางแห่งความสำเร็จ คนที่มีความฝันจึงเป็นคนที่งดงามและมีความสุขที่สุดในโลก
+                    </p>
 
-    <p class="fs-5">
-     เมื่อเรามีความอดทน เราจะมองเห็นหนทางแห่งความสำเร็จ คนที่มีความฝันจึงเป็นคนที่งดงามและมีความสุขที่สุดในโลก
-    </p>
+                    <h2 class="display-5 fw-bold font-sriracha my-4 text-warning drop-shadow">
+                        "หนทางที่นำไปสู่สำเร็จล้วนมี ความอดทนเป็นปัจจัยสำคัญ"
+                    </h2>
 
-    <p class="display-5 fw-bold sriracha-regular">
-       "หนทางที่นำไปสู่สำเร็จล้วนมี ความอดทนเป็นปัจจัยสำคัญ"
-    </p>
+                    <p class="fs-5 font-mitr mb-4 text-light">
+                        แม้จะต้องพบความยากลำบาก แต่หากไม่เคยยอมแพ้ ยังคงมุ่งมานะ พร้อมกับมีหัวใจที่อดทน ก็สามารถประสบความสำเร็จได้!
+                    </p>
 
-    <p class="fs-5">
-    แม้จะต้องพบความยากลำบาก แต่หากไม่เคยยอมแพ้ ยังคงมุ่งมานะ พร้อมกับมีหัวใจที่อดทน ก็สามารถประสบความสำเร็จได้!
-    </p>
-   
-</div>
+                
+
+                </div>
             </div>
         </div>
     </footer>
- 
-    <footer class="text-center py-3">
-    <p class="mb-0 small">
-        Hallinan, P. K. (1999). <em>Let's be patient</em>. Ideals Publications.
-        Cover image retrieved from
-        <a href="https://www.amazon.com/P-K-Hallinan/e/B001HCZSPW/"
-           target="_blank"
-           rel="noopener noreferrer">
-            Amazon
-        </a>.
-    </p>
-</footer>
 
-<!--bootstrap+javascript -->
+    <!-- APA Citation Footer -->
+    <footer class="bg-white text-center py-4 border-t">
+        <div class="container">
+            <p class="mb-0 small text-secondary font-mitr">
+                Hallinan, P. K. (1999). <em>Let's be patient</em>. Ideals Publications.
+                Cover image retrieved from
+                <a href="https://www.amazon.com/P-K-Hallinan/e/B001HCZSPW/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="text-danger fw-bold text-decoration-underline">
+                   Amazon
+                </a>.
+            </p>
+            <p class="mt-1 mb-0 x-small text-muted font-mitr">
+                © 2026 Trago Publishing | Designed in Japanese Kawaii Manga Style
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3.3 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation Library JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JavaScript (Equivalent to js/main.js) -->
     <script>
-        AOS.init();
+        // Initialize AOS Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                easing: 'ease-in-out'
+            });
+        });
+
+        // Kawaii Interactive Quote Generator
+        const kawaiiQuotes = [
+            "ความอดทนในวันนี้ คือดอกไม้แห่งความสำเร็จในวันหน้า 🌸",
+            "ก้าวทีละเล็กละน้อย ดีกว่าไม่ก้าวเลยนะ! 🐾",
+            "ความฝันที่ยิ่งใหญ่ เริ่มต้นที่สมาธิและความตั้งใจ ✨",
+            "เหนื่อยก็พักสักนิด แล้วลุกขึ้นสู้ต่อด้วยรอยยิ้ม 😊",
+            "คนที่อดทนได้ คือคนที่จะคว้าชัยชนะในที่สุด ⭐"
+        ];
+
+        function generateKawaiiQuote() {
+            const quoteDisplay = document.getElementById('quoteDisplay');
+            const quoteText = document.getElementById('quoteText');
+            
+            const randomIndex = Math.floor(Math.random() * kawaiiQuotes.length);
+            quoteText.innerText = kawaiiQuotes[randomIndex];
+            
+            quoteDisplay.style.display = 'block';
+            quoteDisplay.classList.add('animate__animated', 'animate__fadeIn');
+        }
     </script>
 </body>
 </html>
